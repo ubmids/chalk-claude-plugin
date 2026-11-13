@@ -1,0 +1,17 @@
+{
+  "name": "getchalk",
+  "description": "The Claude Code plugin for Chalk, a whiteboard you share with Claude. Requires the paid Chalk app for macOS, installed separately.",
+  "owner": {
+    "name": "Chalk",
+    "email": "hello@getchalk.dev",
+    "url": "https://getchalk.dev"
+  },
+  "plugins": [
+    {
+      "name": "chalk-board",
+      "source": "./",
+      "description": "Connects Claude Code to Chalk, a whiteboard you share with Claude for planning. Requires the paid Chalk app for macOS 13 or newer, installed separately from getchalk.dev.",
+      "category": "productivity"
+    }
+  ]
+}

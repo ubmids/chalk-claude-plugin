@@ -1,0 +1,23 @@
+{
+  "name": "chalk-board",
+  "displayName": "Chalk",
+  "version": "0.3.0",
+  "description": "Connects Claude Code to Chalk, a whiteboard you share with Claude for planning. Requires the paid Chalk app for macOS 13 or newer, installed separately from getchalk.dev.",
+  "author": {
+    "name": "Chalk",
+    "email": "hello@getchalk.dev",
+    "url": "https://getchalk.dev"
+  },
+  "homepage": "https://getchalk.dev",
+  "license": "MIT",
+  "keywords": [
+    "whiteboard",
+    "planning",
+    "plan-review",
+    "visual",
+    "mcp",
+    "macos"
+  ],
+  "privacyPolicyUrl": "https://getchalk.dev/privacy",
+  "repository": "https://github.com/ubmids/chalk-claude-plugin"
+}
