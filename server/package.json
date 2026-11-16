@@ -1,0 +1,23 @@
+{
+  "name": "chalk-mcp-fallback",
+  "version": "0.3.0",
+  "description": "Stand-in MCP server for Chalk. Lists Chalk's board tools anywhere, and answers every call with how to install the Chalk app for macOS.",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "bin": {
+    "chalk-mcp-fallback": "index.js"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^4.6.7"
+  }
+}
