@@ -54,6 +54,19 @@ While Claude waits for you to mark the board, it runs `chalk wait --live` as a b
 
 There are no compiled binaries in this repository. Both scripts are short shell files you can read.
 
+### The stand-in server (Docker, MCP directories)
+
+The board tools only work with the Chalk app on a Mac. So that Chalk's MCP interface can still be built and inspected anywhere, for example by MCP directories that test servers in Docker, the `server/` folder holds a small stand-in server. It lists the same tools as the app, and every tool call returns an error explaining how to install Chalk. It makes no network requests and reads no files. Claude Code doesn't use it: the plugin always starts the app's own server.
+
+To try it:
+
+```sh
+docker build -t chalk-mcp .
+docker run -i --rm chalk-mcp
+```
+
+Or without Docker, from the `server/` folder: `npm ci`, then `npm start`. `npm test` starts it and checks that it lists its tools.
+
 ### Optional: skip the permission prompts
 
 A plugin cannot grant permissions, so Claude Code asks before it uses the board tools and before it runs `chalk wait`. To allow them once, add these rules to `permissions.allow` in `~/.claude/settings.json`:
