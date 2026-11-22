@@ -1,6 +1,6 @@
 {
   "name": "chalk-mcp-fallback",
-  "version": "0.3.0",
+  "version": "0.4.1",
   "description": "Stand-in MCP server for Chalk. Lists Chalk's board tools anywhere, and answers every call with how to install the Chalk app for macOS.",
   "type": "module",
   "license": "MIT",

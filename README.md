@@ -45,7 +45,7 @@ Restart Claude Code, then say "let's plan this on the board" or run `/chalk-boar
 
 ## What the plugin adds
 
-* **An MCP server entry named `chalk`.** It runs `scripts/chalk-mcp.sh`, which starts the installed app's own server with `chalk mcp`. This gives Claude the board tools: open the board, lay out a plan, read your marks, set a card's status, add notes and files, and ask a question on the board. If Chalk is not installed, the script prints the install command and exits.
+* **An MCP server entry named `chalk`.** It runs `scripts/chalk-mcp.sh`, which starts the installed app's own server with `chalk mcp`. This gives Claude the board tools: open the board, lay out a plan, read your marks, set a card's status, add notes and files, show a screenshot of what it built beside its step, and ask a question on the board. If Chalk is not installed, the script prints the install command and exits.
 * **A skill named `chalk`.** It tells Claude when to use the board and how to read your marks.
 * **A command, `/chalk-board:board`.** It opens the board and lays out the current task. You can pass the thing to plan as an argument.
 * **One `UserPromptSubmit` hook.** It runs `scripts/prompt-hook.sh` on each prompt, which passes the prompt to the installed app with `chalk hook`. The app may add one line of context for Claude: that a board is open, that you said "no board", or that the request looks like planning and the board would help. If you say "no board" or "just tell me", Chalk records that in `~/.chalk` and Claude stops opening the board by itself for 12 hours.

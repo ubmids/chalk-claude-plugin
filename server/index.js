@@ -85,6 +85,14 @@ export const TOOLS = {
     description: "Put a picture or file from the project on the board.",
     shape: { path: z.string().describe("Path of the file inside the project"), near, side, x, y },
   },
+  show_work: {
+    description: "Put a screenshot of what was just built beside the plan card it belongs to, for the human to mark up.",
+    shape: {
+      path: z.string().describe("Path of the screenshot, inside the project or the temp folder"),
+      card: id.describe("The plan card the screenshot shows the result of"),
+      caption: z.string().optional().describe("A few words on what changed"),
+    },
+  },
   connect: {
     description: "Draw an arrow from one element to another.",
     shape: { from: id, to: id, label: z.string().optional().describe("Text on the arrow") },

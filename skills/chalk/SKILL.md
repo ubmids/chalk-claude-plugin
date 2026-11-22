@@ -35,6 +35,7 @@ There is no button and no "your turn". The board shows one calm word for you (wa
 - **Sketches and handwriting**: when board_read lists ink you can't read from structure, `board_snapshot` (optionally `ids` or `region`), then say what you see in a sentence before acting. If unsure, ask.
 - **Think out loud** with `think` while you work something out, like a coworker muttering at the whiteboard: a hunch, a trade-off, what you're checking next ("auth lives in two places?", "try the cache first"), `near` the card it's about. One short line each; a train of thought stacks into one column and fades on its own (they can tap a line to keep it). A few per step, not a running log. Answers still go in `add_note`, questions in `hand_over`.
 - **Pictures and files**: they can drop or paste screenshots, mockups, PDFs, logs, CSVs, anything. `board_read` hands you their new pictures as images and lists every file with its path: look at a picture and say in a sentence what you see; open a file with Read before acting on it. Show them things the same way: `add_file` with an absolute path puts a screenshot, chart or rendered diagram up as itself, any other file as a card they can double-click to open. It takes files inside this project or the temp folder (render into either), never keys or .env files.
+- **Show your work**: when a step changes something they can see (a page, a screen, a component, a chart, a layout), take a screenshot of the running result and `show_work` it with `card:` that step's card, before you move on. It goes beside the card with a dashed arrow, so they can circle what's wrong right on it instead of describing it. Screenshot it yourself into the project or the temp folder: a headless browser (`npx playwright screenshot <url> /tmp/after.png`), `xcrun simctl io booted screenshot /tmp/after.png` for the iOS simulator, or your browser tools. A short `caption` says what changed. Showing the same card again replaces the picture and keeps the last one small under it as "before".
 - Tidy: `group` related cards, `connect` with a label when the relation isn't obvious, `update_note` instead of near-duplicates, `remove` your own stale cards. Card text is short; detail belongs in chat.
 - On the board (cards, notes, questions), name cards by their words, never by id: "Filter buttons next", not "c5 next". Ids are for tool calls only.
 
@@ -67,6 +68,8 @@ Read their marks like a coworker would: they're sloppy and natural, there are no
 | dragged cards into a new order | reprioritised | follow "Plan ... order now" |
 | big X over the board, or a note saying stop/wait | stop | stop, ask on the board with `hand_over` |
 | deleted your card | they don't want it | don't redo it |
+| circled, boxed, pointed at or wrote on a **screenshot** | "this spot is wrong" (their words say how) | `board_read` hands you a close-up of the spot with their marks on it; fix exactly that, reply in a few words by their mark, then `show_work` the new screenshot for the same card |
+| ticked a screenshot | looks right | carry on |
 
 ## 3. Watching (the loop)
 
@@ -90,7 +93,7 @@ If you'd rather block inside your turn (short waits only), `wait_for_change` doe
 ## 4. Doing the work (after "go ahead", "build it", in the terminal or on the board)
 
 1. If no `chalk wait --live` is running, start one in the background FIRST. While one of your cards is "doing" it stays quiet except for urgent marks (a cross-out of the card you're on or the next one, a big X, a note saying stop), so it never nags. Their other marks get an instant "seen" on the board and are waiting for you at your next `board_read`.
-2. Go **card by card** in the board's current order: `set_status doing` → make that card's edits → `set_status done` → `board_read` (cheap; it shows anything they marked meanwhile) → next card. Skip crossed-out cards. Don't fold several cards into one big edit and tick them all at the end: the board is how they follow you and steer.
+2. Go **card by card** in the board's current order: `set_status doing` → make that card's edits → if the result is something they can see, screenshot it and `show_work` it → `set_status done` → `board_read` (cheap; it shows anything they marked meanwhile) → next card. Skip crossed-out cards. Don't fold several cards into one big edit and tick them all at the end: the board is how they follow you and steer.
 3. If the background wait completes mid-work, it's an urgent mark: act on it at once (skip the crossed-out card with a short note by their mark, or stop and ask on the board with `hand_over`), then start a fresh `chalk wait --live`.
 4. When you're done: a short note on the board if there's something to say (or `hand_over` if you need them), make sure one `chalk wait --live` is running, and end your turn with a one-line summary.
 
@@ -113,6 +116,7 @@ If you'd rather block inside your turn (short waits only), `wait_for_change` doe
 | `add_note` | a card; or `as: "note"` + `near: <their mark>` for a handwritten reply right there |
 | `think` | a short thought out loud in faint chalk, `near` what it's about; fades on its own |
 | `add_file` | put a picture (as itself) or any file (as a card) from disk on the board |
+| `show_work` | a screenshot of what you just built, beside its plan card, for them to mark up |
 | `connect` / `group` / `highlight` | arrows, titled boxes, a chalk wash to point at things |
 | `update_note` / `set_status` / `remove` / `clear_claude` | edit, todo/doing/done/failed, delete yours |
 | `hand_over` | write a question on the board, `about` the cards it concerns |
