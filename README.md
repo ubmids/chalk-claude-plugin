@@ -1,6 +1,6 @@
 # Chalk for Claude Code
 
-This is the Claude Code plugin for [Chalk](https://getchalk.dev), a whiteboard you share with Claude Code. Claude lays its plan out as cards on a board beside your terminal. You cross a card out, circle one, drag them into a new order or write a question mark, and Claude gets a structured description of each mark and revises the plan before it writes code.
+This is the Claude Code plugin for [Chalk](https://getchalk.dev), a board you share with Claude Code beside your terminal. When Claude finishes a step that changes something you can see, it puts a screenshot of the result beside that step. You circle what's wrong or type a few words on it, Claude gets a close-up of exactly that spot, fixes it, and shows the new screenshot with the old one kept small as "before". Claude's plan sits on the same board as cards: cross one out, circle one or drag them into a new order, and it revises the plan before it writes code. Every mark also has a key.
 
 **This plugin does nothing by itself. It requires the Chalk app, which is a separate, paid, closed-source product.** The plugin only connects Claude Code to an installed copy of Chalk.
 
