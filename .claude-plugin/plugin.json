@@ -2,7 +2,7 @@
   "name": "chalk-board",
   "displayName": "Chalk",
   "version": "0.4.1",
-  "description": "Connects Claude Code to Chalk: Claude shows what it built on a board beside your terminal, you circle what's wrong, it fixes that spot. Requires the paid Chalk app for macOS 13 or newer, installed separately from getchalk.dev.",
+  "description": "Connects Claude Code to Chalk: Claude shows what it built on a board beside your terminal, you circle what's wrong, it fixes that spot. Requires the free, open-source Chalk app for macOS 13 or newer (github.com/ubmids/chalk).",
   "author": {
     "name": "Chalk",
     "email": "hello@getchalk.dev",

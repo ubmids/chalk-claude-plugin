@@ -1,8 +1,8 @@
 # Chalk for Claude Code
 
-This is the Claude Code plugin for [Chalk](https://getchalk.dev), a board you share with Claude Code beside your terminal. When Claude finishes a step that changes something you can see, it puts a screenshot of the result beside that step. You circle what's wrong or type a few words on it, Claude gets a close-up of exactly that spot, fixes it, and shows the new screenshot with the old one kept small as "before". Claude's plan sits on the same board as cards: cross one out, circle one or drag them into a new order, and it revises the plan before it writes code. Every mark also has a key.
+This is the Claude Code plugin for [Chalk](https://github.com/ubmids/chalk), a board you share with Claude Code beside your terminal. When Claude finishes a step that changes something you can see, it puts a screenshot of the result beside that step. You circle what's wrong or type a few words on it, Claude gets a close-up of exactly that spot, fixes it, and shows the new screenshot with the old one kept small as "before". Claude's plan sits on the same board as cards: cross one out, circle one or drag them into a new order, and it revises the plan before it writes code. Every mark also has a key.
 
-**This plugin does nothing by itself. It requires the Chalk app, which is a separate, paid, closed-source product.** The plugin only connects Claude Code to an installed copy of Chalk.
+**This plugin does nothing by itself. It requires the Chalk app, which is free and open source (MIT) at [github.com/ubmids/chalk](https://github.com/ubmids/chalk).** The plugin only connects Claude Code to an installed copy of Chalk.
 
 ## Requirements
 
@@ -12,19 +12,17 @@ This is the Claude Code plugin for [Chalk](https://getchalk.dev), a board you sh
 
 ## Price
 
-The Chalk download is free. The first time the board opens it asks for a one-time payment of $24, which unlocks Chalk on that Mac. There is no subscription. Refunds are available within 7 days. Details are at [getchalk.dev](https://getchalk.dev).
-
-This plugin is free and MIT licensed. The license covers the files in this repository only, not the Chalk app.
+Free. Both Chalk and this plugin are MIT licensed.
 
 ## Install
 
 ### 1. Install the Chalk app
 
 ```sh
-curl -fsSL https://getchalk.dev/install | sh -s -- --no-claude
+git clone https://github.com/ubmids/chalk.git ~/chalk && ~/chalk/install.sh
 ```
 
-This installs Chalk into `~/.chalk` and puts the `chalk` command on your PATH. The `--no-claude` option tells the installer to skip its own Claude Code setup, because this plugin provides it instead (see "If you already use Chalk" below).
+This builds Chalk from source (it needs Node 20+; the native panel also needs the Xcode command line tools) and puts the `chalk` command in `~/.local/bin`. Don't run `chalk install-claude` afterwards: this plugin provides that setup instead (see "If you already use Chalk" below). To update later: `cd ~/chalk && git pull && ./install.sh`.
 
 ### 2. Install the plugin
 

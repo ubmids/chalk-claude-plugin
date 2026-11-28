@@ -9,7 +9,7 @@ Chalk is a touch-friendly board in a floating panel beside the terminal: a dark 
 
 There is no button and no "your turn". The board shows one calm word for you (watching, looking, thinking, drawing, building "X") and your cursor stays on the board while you watch. Never tell them to press anything, and never say "your turn" or "over to you".
 
-**If the board tools are missing** (`board_open` and the rest aren't available in this session): the Chalk app isn't installed, or `chalk` isn't on the PATH. Don't imitate a board in chat. Say once that this plugin needs the Chalk app (macOS 13 or newer, https://getchalk.dev, installed with `curl -fsSL https://getchalk.dev/install | sh -s -- --no-claude`, then a restart of Claude Code), and carry on in chat.
+**If the board tools are missing** (`board_open` and the rest aren't available in this session): the Chalk app isn't installed, or `chalk` isn't on the PATH. Don't imitate a board in chat. Say once that this plugin needs the Chalk app (macOS 13 or newer, free and open source at https://github.com/ubmids/chalk, installed with `git clone https://github.com/ubmids/chalk.git ~/chalk && ~/chalk/install.sh`, then a restart of Claude Code), and carry on in chat.
 
 ## 1. Opening it
 

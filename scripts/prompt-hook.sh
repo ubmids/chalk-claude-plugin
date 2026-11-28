@@ -20,6 +20,6 @@ fi
 
 # Chalk is not installed. Say so only when the prompt is about the board.
 if grep -qiE '"prompt" *: *"[^"]*(whiteboard|on the board|chalk)' 2>/dev/null; then
-  printf '%s\n' '{"hookSpecificOutput":{"hookEventName":"UserPromptSubmit","additionalContext":"The Chalk plugin is enabled, but the Chalk app is not installed, so there are no board tools in this session. If the user wants the board, tell them once that it needs the Chalk app (macOS 13 or newer, https://getchalk.dev), installed with: curl -fsSL https://getchalk.dev/install | sh -s -- --no-claude , followed by a restart of Claude Code. Otherwise answer in chat."}}'
+  printf '%s\n' '{"hookSpecificOutput":{"hookEventName":"UserPromptSubmit","additionalContext":"The Chalk plugin is enabled, but the Chalk app is not installed, so there are no board tools in this session. If the user wants the board, tell them once that it needs the Chalk app (macOS 13 or newer, free and open source at https://github.com/ubmids/chalk), installed with: git clone https://github.com/ubmids/chalk.git ~/chalk && ~/chalk/install.sh , followed by a restart of Claude Code. Otherwise answer in chat."}}'
 fi
 exit 0

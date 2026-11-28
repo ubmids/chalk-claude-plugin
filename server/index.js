@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-// A stand-in MCP server for Chalk (https://getchalk.dev).
+// A stand-in MCP server for Chalk (https://github.com/ubmids/chalk).
 //
 // The real board tools come from the Chalk app for macOS, which this plugin starts with
-// `chalk mcp` (see ../scripts/chalk-mcp.sh). That app is a separate, paid product and runs
+// `chalk mcp` (see ../scripts/chalk-mcp.sh). That app is a separate, free and open-source product and runs
 // only on macOS 13 or newer, so it can't start inside a Linux container or on a machine
 // without Chalk installed.
 //
@@ -22,14 +22,13 @@ export const VERSION = "0.3.0";
 export const INSTALL_MESSAGE = [
   "The Chalk app isn't available here, so the board can't open.",
   "",
-  "Chalk is a whiteboard you share with Claude Code. It needs the Chalk app, a separate product for macOS 13 or newer.",
-  "The download is free; the board asks for a one-time $24 unlock the first time it opens.",
+  "Chalk is a whiteboard you share with Claude Code. It needs the Chalk app for macOS 13 or newer: free and open source (MIT).",
   "",
   "Install it on a Mac with:",
   "",
-  "  curl -fsSL https://getchalk.dev/install | sh -s -- --no-claude",
+  "  git clone https://github.com/ubmids/chalk.git ~/chalk && ~/chalk/install.sh",
   "",
-  "Then add the Chalk plugin to Claude Code and restart it. More at https://getchalk.dev",
+  "Then add the Chalk plugin to Claude Code and restart it. More at https://github.com/ubmids/chalk",
 ].join("\n");
 
 const id = z.string().describe('An element id from board_read, such as "c3" for one of Claude\'s cards or "h2" for one of the human\'s marks');
